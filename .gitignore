@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+dist-electron/
+out/
+build/
+
+# Electron
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Build artifacts
+*.exe
+*.zip
+*.dmg
+*.app
+*.deb
+*.rpm
+win-unpacked/
+mac/
+linux-unpacked/
+
+# Electron builder output
+release/
+dist-electron/

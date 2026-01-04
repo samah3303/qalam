@@ -1,0 +1,86 @@
+{
+  "name": "qalam",
+  "productName": "Qalam",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Modern accounting software for small to medium businesses",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build && electron-builder --dir",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.958.0",
+    "@aws-sdk/s3-request-presigner": "^3.958.0",
+    "archiver": "^7.0.1",
+    "jspdf": "^3.0.4",
+    "unzipper": "^0.12.3",
+    "vue": "^3.4.21",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.2",
+    "@types/archiver": "^7.0.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/unzipper": "^0.10.11",
+    "@typescript-eslint/eslint-plugin": "^8.50.1",
+    "@typescript-eslint/parser": "^8.50.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.23",
+    "better-sqlite3": "^12.5.0",
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue-tsc": "^2.0.26"
+  },
+  "main": "dist-electron/main.js",
+  "build": {
+    "appId": "com.qalam.accounting",
+    "productName": "Qalam",
+    "asar": true,
+    "win": {
+      "target": "dir",
+      "icon": "build/icon.png"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "!node_modules",
+      {
+        "from": "node_modules/better-sqlite3",
+        "to": "node_modules/better-sqlite3",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "node_modules/@aws-sdk",
+        "to": "node_modules/@aws-sdk",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "node_modules/archiver",
+        "to": "node_modules/archiver",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "node_modules/unzipper",
+        "to": "node_modules/unzipper",
+        "filter": ["**/*"]
+      }
+    ],
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**/*",
+      "**/node_modules/@aws-sdk/**/*",
+      "**/node_modules/archiver/**/*",
+      "**/node_modules/unzipper/**/*"
+    ]
+  }
+}
